@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<cadastroPacientes>
+	<paciente>
+		<nome>Joao da Silva</nome>
+		<categoria>professor</categoria>	
+		<dataNascimento>1980-02-30</dataNascimento>
+		<cpf>999.999.999-99</cpf>
+		<endereco>R. Alfa, 0 - Vila Beta</endereco>
+		<telefone>(31)9999-9999</telefone>
+	</paciente>
+	
+	<paciente>
+		<nome>Raimundo Nonato</nome>
+		<categoria>aluno</categoria>	
+		<dataNascimento>1990-06-31</dataNascimento>
+		<cpf>000.000.000-00</cpf>
+		<endereco>R. Omega, 9 - </endereco>
+		<telefone>(31)9999-9999</telefone>
+	</paciente>
+</cadastroPacientes>
