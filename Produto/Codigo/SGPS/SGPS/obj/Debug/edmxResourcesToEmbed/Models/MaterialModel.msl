@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="materialModelStoreContainer" CdmEntityContainer="materialEntities">
+    <EntitySetMapping Name="materials">
+      <EntityTypeMapping TypeName="materialModel.material">
+        <MappingFragment StoreEntitySet="material">
+          <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+          <ScalarProperty Name="strDesMat" ColumnName="strDesMat" />
+          <ScalarProperty Name="strQtdMat" ColumnName="strQtdMat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="movimentacaoEstoques">
+      <EntityTypeMapping TypeName="materialModel.movimentacaoEstoque">
+        <MappingFragment StoreEntitySet="movimentacaoEstoque">
+          <ScalarProperty Name="idMovMat" ColumnName="idMovMat" />
+          <ScalarProperty Name="strDesMov" ColumnName="strDesMov" />
+          <ScalarProperty Name="dtmDatMov" ColumnName="dtmDatMov" />
+          <ScalarProperty Name="strQtdMov" ColumnName="strQtdMov" />
+          <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

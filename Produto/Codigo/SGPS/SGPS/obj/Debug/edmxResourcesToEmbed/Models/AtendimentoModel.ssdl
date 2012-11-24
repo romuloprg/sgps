@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="atendimentoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="atendimentoModelStoreContainer">
+    <EntitySet Name="atendimento" EntityType="atendimentoModel.Store.atendimento" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="atendimento">
+    <Key>
+      <PropertyRef Name="idAtendimento" />
+    </Key>
+    <Property Name="idAtendimento" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="idPaciente" Type="int" Nullable="false" />
+    <Property Name="strMotivoAtendimento" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="strProvidencias" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="idMaterial" Type="int" Nullable="false" />
+    <Property Name="dtmDataAtendimento" Type="date" Nullable="false" />
+  </EntityType>
+</Schema>

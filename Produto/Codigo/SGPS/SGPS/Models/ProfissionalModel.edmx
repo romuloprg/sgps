@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="profissionalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="profissionalModelStoreContainer">
+          <EntitySet Name="profissional" EntityType="profissionalModel.Store.profissional" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="profissional">
+          <Key>
+            <PropertyRef Name="idProfissional" />
+          </Key>
+          <Property Name="strNome" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="strCPF" Type="nchar" Nullable="false" MaxLength="11" />
+          <Property Name="strCargo" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="dtmHorario" Type="datetime" Nullable="false" />
+          <Property Name="strEscala" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="idProfissional" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="profissionalModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="profissionalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="profissionals" EntityType="profissionalModel.profissional" />
+        </EntityContainer>
+        <EntityType Name="profissional">
+          <Key>
+            <PropertyRef Name="idProfissional" />
+          </Key>
+          <Property Name="strNome" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="strCPF" Type="String" Nullable="false" MaxLength="11" Unicode="true" FixedLength="true" />
+          <Property Name="strCargo" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="dtmHorario" Type="DateTime" Nullable="false" />
+          <Property Name="strEscala" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="idProfissional" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="profissionalModelStoreContainer" CdmEntityContainer="profissionalEntities">
+          <EntitySetMapping Name="profissionals"><EntityTypeMapping TypeName="profissionalModel.profissional"><MappingFragment StoreEntitySet="profissional">
+            <ScalarProperty Name="strNome" ColumnName="strNome" />
+            <ScalarProperty Name="strCPF" ColumnName="strCPF" />
+            <ScalarProperty Name="strCargo" ColumnName="strCargo" />
+            <ScalarProperty Name="dtmHorario" ColumnName="dtmHorario" />
+            <ScalarProperty Name="strEscala" ColumnName="strEscala" />
+            <ScalarProperty Name="idProfissional" ColumnName="idProfissional" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ProfissionalModel" ZoomLevel="91">
+        <EntityTypeShape EntityType="profissionalModel.profissional" Width="1.5" PointX="0.75" PointY="0.75" Height="2.172587890625" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

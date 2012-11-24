@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="profissionalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="profissionalModelStoreContainer">
+    <EntitySet Name="profissional" EntityType="profissionalModel.Store.profissional" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="profissional">
+    <Key>
+      <PropertyRef Name="idProfissional" />
+    </Key>
+    <Property Name="strNome" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="strCPF" Type="nchar" Nullable="false" MaxLength="11" />
+    <Property Name="strCargo" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="dtmHorario" Type="datetime" Nullable="false" />
+    <Property Name="strEscala" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="idProfissional" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+</Schema>

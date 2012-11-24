@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="profissionalModelStoreContainer" CdmEntityContainer="profissionalEntities">
+    <EntitySetMapping Name="profissionals">
+      <EntityTypeMapping TypeName="profissionalModel.profissional">
+        <MappingFragment StoreEntitySet="profissional">
+          <ScalarProperty Name="strNome" ColumnName="strNome" />
+          <ScalarProperty Name="strCPF" ColumnName="strCPF" />
+          <ScalarProperty Name="strCargo" ColumnName="strCargo" />
+          <ScalarProperty Name="dtmHorario" ColumnName="dtmHorario" />
+          <ScalarProperty Name="strEscala" ColumnName="strEscala" />
+          <ScalarProperty Name="idProfissional" ColumnName="idProfissional" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

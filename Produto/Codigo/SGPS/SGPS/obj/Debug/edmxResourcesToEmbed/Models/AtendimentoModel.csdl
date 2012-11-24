@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="atendimentoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="atendimentoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="atendimentoes" EntityType="atendimentoModel.atendimento" />
+  </EntityContainer>
+  <EntityType Name="atendimento">
+    <Key>
+      <PropertyRef Name="idAtendimento" />
+    </Key>
+    <Property Name="idAtendimento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idPaciente" Type="Int32" Nullable="false" />
+    <Property Name="strMotivoAtendimento" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="strProvidencias" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="idMaterial" Type="Int32" Nullable="false" />
+    <Property Name="dtmDataAtendimento" Type="DateTime" Nullable="false" />
+  </EntityType>
+</Schema>

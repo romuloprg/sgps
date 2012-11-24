@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="hospitalModelStoreContainer" CdmEntityContainer="hospitalEntities">
+    <EntitySetMapping Name="hospitals">
+      <EntityTypeMapping TypeName="hospitalModel.hospital">
+        <MappingFragment StoreEntitySet="hospital">
+          <ScalarProperty Name="idHospital" ColumnName="idHospital" />
+          <ScalarProperty Name="strRazaoSocial" ColumnName="strRazaoSocial" />
+          <ScalarProperty Name="strCNPJ" ColumnName="strCNPJ" />
+          <ScalarProperty Name="strEndereco" ColumnName="strEndereco" />
+          <ScalarProperty Name="strTelefone" ColumnName="strTelefone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

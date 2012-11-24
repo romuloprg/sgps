@@ -1,0 +1,5 @@
+C:\Users\Lorena\Documents\SGPS\SGPS\bin\SGPS.dll
+C:\Users\Lorena\Documents\SGPS\SGPS\bin\SGPS.pdb
+C:\Users\Lorena\Documents\SGPS\SGPS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Lorena\Documents\SGPS\SGPS\obj\Debug\SGPS.dll
+C:\Users\Lorena\Documents\SGPS\SGPS\obj\Debug\SGPS.pdb

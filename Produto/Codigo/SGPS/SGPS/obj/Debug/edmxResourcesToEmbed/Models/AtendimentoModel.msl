@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="atendimentoModelStoreContainer" CdmEntityContainer="atendimentoEntities">
+    <EntitySetMapping Name="atendimentoes">
+      <EntityTypeMapping TypeName="atendimentoModel.atendimento">
+        <MappingFragment StoreEntitySet="atendimento">
+          <ScalarProperty Name="idAtendimento" ColumnName="idAtendimento" />
+          <ScalarProperty Name="idPaciente" ColumnName="idPaciente" />
+          <ScalarProperty Name="strMotivoAtendimento" ColumnName="strMotivoAtendimento" />
+          <ScalarProperty Name="strProvidencias" ColumnName="strProvidencias" />
+          <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+          <ScalarProperty Name="dtmDataAtendimento" ColumnName="dtmDataAtendimento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

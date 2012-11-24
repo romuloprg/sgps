@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sgpsModelStoreContainer" CdmEntityContainer="encaminhamentoEntities">
+    <EntitySetMapping Name="encaminhamentoes">
+      <EntityTypeMapping TypeName="sgpsModel.encaminhamento">
+        <MappingFragment StoreEntitySet="encaminhamento">
+          <ScalarProperty Name="idEncaminhamento" ColumnName="idEncaminhamento" />
+          <ScalarProperty Name="idPaciente" ColumnName="idPaciente" />
+          <ScalarProperty Name="idHospital" ColumnName="idHospital" />
+          <ScalarProperty Name="strMotivo" ColumnName="strMotivo" />
+          <ScalarProperty Name="strSituacaoAtual" ColumnName="strSituacaoAtual" />
+          <ScalarProperty Name="dtmDataEncaminhamento" ColumnName="dtmDataEncaminhamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

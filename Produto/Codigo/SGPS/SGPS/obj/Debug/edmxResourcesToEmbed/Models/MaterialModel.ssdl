@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="materialModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="materialModelStoreContainer">
+    <EntitySet Name="material" EntityType="materialModel.Store.material" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="movimentacaoEstoque" EntityType="materialModel.Store.movimentacaoEstoque" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_movimentacaoEstoque_material" Association="materialModel.Store.FK_movimentacaoEstoque_material">
+      <End Role="material" EntitySet="material" />
+      <End Role="movimentacaoEstoque" EntitySet="movimentacaoEstoque" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="material">
+    <Key>
+      <PropertyRef Name="idMaterial" />
+    </Key>
+    <Property Name="idMaterial" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="strDesMat" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="strQtdMat" Type="nchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="movimentacaoEstoque">
+    <Key>
+      <PropertyRef Name="idMovMat" />
+    </Key>
+    <Property Name="idMovMat" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="strDesMov" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="dtmDatMov" Type="date" Nullable="false" />
+    <Property Name="strQtdMov" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="idMaterial" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_movimentacaoEstoque_material">
+    <End Role="material" Type="materialModel.Store.material" Multiplicity="1" />
+    <End Role="movimentacaoEstoque" Type="materialModel.Store.movimentacaoEstoque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="material">
+        <PropertyRef Name="idMaterial" />
+      </Principal>
+      <Dependent Role="movimentacaoEstoque">
+        <PropertyRef Name="idMaterial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

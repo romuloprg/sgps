@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="materialModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="materialEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="materials" EntityType="materialModel.material" />
+    <EntitySet Name="movimentacaoEstoques" EntityType="materialModel.movimentacaoEstoque" />
+    <AssociationSet Name="FK_movimentacaoEstoque_material" Association="materialModel.FK_movimentacaoEstoque_material">
+      <End Role="material" EntitySet="materials" />
+      <End Role="movimentacaoEstoque" EntitySet="movimentacaoEstoques" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="material">
+    <Key>
+      <PropertyRef Name="idMaterial" />
+    </Key>
+    <Property Name="idMaterial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="strDesMat" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="strQtdMat" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="movimentacaoEstoques" Relationship="materialModel.FK_movimentacaoEstoque_material" FromRole="material" ToRole="movimentacaoEstoque" />
+  </EntityType>
+  <EntityType Name="movimentacaoEstoque">
+    <Key>
+      <PropertyRef Name="idMovMat" />
+    </Key>
+    <Property Name="idMovMat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="strDesMov" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="dtmDatMov" Type="DateTime" Nullable="false" />
+    <Property Name="strQtdMov" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="idMaterial" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="material" Relationship="materialModel.FK_movimentacaoEstoque_material" FromRole="movimentacaoEstoque" ToRole="material" />
+  </EntityType>
+  <Association Name="FK_movimentacaoEstoque_material">
+    <End Role="material" Type="materialModel.material" Multiplicity="1" />
+    <End Role="movimentacaoEstoque" Type="materialModel.movimentacaoEstoque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="material">
+        <PropertyRef Name="idMaterial" />
+      </Principal>
+      <Dependent Role="movimentacaoEstoque">
+        <PropertyRef Name="idMaterial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="materialModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="materialModelStoreContainer">
+          <EntitySet Name="material" EntityType="materialModel.Store.material" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="movimentacaoEstoque" EntityType="materialModel.Store.movimentacaoEstoque" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_movimentacaoEstoque_material" Association="materialModel.Store.FK_movimentacaoEstoque_material">
+            <End Role="material" EntitySet="material" />
+            <End Role="movimentacaoEstoque" EntitySet="movimentacaoEstoque" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="material">
+          <Key>
+            <PropertyRef Name="idMaterial" />
+          </Key>
+          <Property Name="idMaterial" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="strDesMat" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="strQtdMat" Type="nchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="movimentacaoEstoque">
+          <Key>
+            <PropertyRef Name="idMovMat" />
+          </Key>
+          <Property Name="idMovMat" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="strDesMov" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="dtmDatMov" Type="date" Nullable="false" />
+          <Property Name="strQtdMov" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="idMaterial" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_movimentacaoEstoque_material">
+          <End Role="material" Type="materialModel.Store.material" Multiplicity="1" />
+          <End Role="movimentacaoEstoque" Type="materialModel.Store.movimentacaoEstoque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="material">
+              <PropertyRef Name="idMaterial" />
+            </Principal>
+            <Dependent Role="movimentacaoEstoque">
+              <PropertyRef Name="idMaterial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="materialModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="materialEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="materials" EntityType="materialModel.material" />
+          <EntitySet Name="movimentacaoEstoques" EntityType="materialModel.movimentacaoEstoque" />
+          <AssociationSet Name="FK_movimentacaoEstoque_material" Association="materialModel.FK_movimentacaoEstoque_material">
+            <End Role="material" EntitySet="materials" />
+            <End Role="movimentacaoEstoque" EntitySet="movimentacaoEstoques" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="material">
+          <Key>
+            <PropertyRef Name="idMaterial" />
+          </Key>
+          <Property Name="idMaterial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strDesMat" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="strQtdMat" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="movimentacaoEstoques" Relationship="materialModel.FK_movimentacaoEstoque_material" FromRole="material" ToRole="movimentacaoEstoque" />
+        </EntityType>
+        <EntityType Name="movimentacaoEstoque">
+          <Key>
+            <PropertyRef Name="idMovMat" />
+          </Key>
+          <Property Name="idMovMat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strDesMov" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="dtmDatMov" Type="DateTime" Nullable="false" />
+          <Property Name="strQtdMov" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="idMaterial" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="material" Relationship="materialModel.FK_movimentacaoEstoque_material" FromRole="movimentacaoEstoque" ToRole="material" />
+        </EntityType>
+        <Association Name="FK_movimentacaoEstoque_material">
+          <End Role="material" Type="materialModel.material" Multiplicity="1" />
+          <End Role="movimentacaoEstoque" Type="materialModel.movimentacaoEstoque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="material">
+              <PropertyRef Name="idMaterial" />
+            </Principal>
+            <Dependent Role="movimentacaoEstoque">
+              <PropertyRef Name="idMaterial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="materialModelStoreContainer" CdmEntityContainer="materialEntities">
+          <EntitySetMapping Name="materials"><EntityTypeMapping TypeName="materialModel.material"><MappingFragment StoreEntitySet="material">
+            <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+            <ScalarProperty Name="strDesMat" ColumnName="strDesMat" />
+            <ScalarProperty Name="strQtdMat" ColumnName="strQtdMat" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="movimentacaoEstoques"><EntityTypeMapping TypeName="materialModel.movimentacaoEstoque"><MappingFragment StoreEntitySet="movimentacaoEstoque">
+            <ScalarProperty Name="idMovMat" ColumnName="idMovMat" />
+            <ScalarProperty Name="strDesMov" ColumnName="strDesMov" />
+            <ScalarProperty Name="dtmDatMov" ColumnName="dtmDatMov" />
+            <ScalarProperty Name="strQtdMov" ColumnName="strQtdMov" />
+            <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="MaterialModel">
+        <EntityTypeShape EntityType="materialModel.material" Width="1.5" PointX="0.75" PointY="1.125" Height="1.7879850260416672" IsExpanded="true" />
+        <EntityTypeShape EntityType="materialModel.movimentacaoEstoque" Width="1.5" PointX="3" PointY="0.875" Height="2.1725878906249996" IsExpanded="true" />
+        <AssociationConnector Association="materialModel.FK_movimentacaoEstoque_material" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.0189925130208337" />
+          <ConnectorPoint PointX="3" PointY="2.0189925130208337" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

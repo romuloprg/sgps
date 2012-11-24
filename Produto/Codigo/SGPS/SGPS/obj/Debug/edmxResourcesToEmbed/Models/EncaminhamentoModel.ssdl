@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sgpsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="sgpsModelStoreContainer">
+    <EntitySet Name="encaminhamento" EntityType="sgpsModel.Store.encaminhamento" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="encaminhamento">
+    <Key>
+      <PropertyRef Name="idEncaminhamento" />
+    </Key>
+    <Property Name="idEncaminhamento" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="idPaciente" Type="int" Nullable="false" />
+    <Property Name="idHospital" Type="int" Nullable="false" />
+    <Property Name="strMotivo" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="strSituacaoAtual" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="dtmDataEncaminhamento" Type="date" Nullable="false" />
+  </EntityType>
+</Schema>
